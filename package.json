@@ -14,7 +14,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "clean": "rm -rf node_modules/gh-pages/.cache",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
