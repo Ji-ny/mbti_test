@@ -1,0 +1,60 @@
+.mbtiLayout{
+  /*모바일 흐름장에서 볼 때 주소창과 네이게이션과의
+    높이는 고려하지 않고 계산이 되어서, 
+    불필요한 스크롤이 생기기 때문이다.*/
+  width: 100vw; // heigth는 100vh로 쓰지 않는다.
+  height: calc(var(--vh,1vh)*100); // var() : Css변수를 가져오고, 값이 없을경우 기본값으로 1vh를 사용.
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  background-color: #eee;
+
+  .startPageLayout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffea35;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    color: #413730;
+
+    .startLogo{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 25px;
+      font-weight: 700;
+    
+      //MBTI
+      > div:nth-child(1){
+        background-color: #413730;
+        color: #ffea35;
+        width: 100px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+      }
+
+      //▼
+      > div:nth-child(2){
+        margin-top:-15px;
+      }
+    }
+    
+    .startButton{
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 20px;
+      cursor:  pointer; // 마우스를 올렸을 때 커서를 손바닥 모양으로 변경
+    }
+
+  }
+}
+
+
+
+
