@@ -53,6 +53,149 @@
     }
 
   }
+
+  .questionLayout{
+
+    display: flex;
+    flex-direction: column;
+    background-color: #bacee0;
+    width: 100%;
+    max-width: 900%;
+    height: 100%;
+    overflow: hidden; // 스크린 없애기
+
+    // MBTI 제목, 페이지
+    .mbtiTitle{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      padding:15px;
+      box-sizing: border-box;
+      font-weight: 700;
+
+      >div:nth-child(1){ //"MBTI 테스트"
+        display: flex;
+        flex:1; // 1을 줘서, 화면 비율에 따라 유연하게 늘어나거나 줄어들 수 있음을 만드는 속성
+      }
+    }
+    // 질문리스트
+    .questionList{
+      flex-direction: column;
+      height: 100%;
+      overflow: scroll;
+      scrollbar-width: none; // 스크롤바 표시는 없지만, 여전히 스크롤 가능
+      // background-color: #ffffff;
+      // border: 3px solid red;
+
+      .questionItemLayout{
+        display: flex;
+        flex:1;
+        margin : 10px 15px 5px 15px;
+
+        .profileImg{
+          display: flex;
+          flex-direction: column;
+          width: 40px;
+          height: 40px;
+          background-color: #a1b6e9;
+          border-radius: 15px;
+          margin-right: 5px;
+          align-items: center;
+          justify-content: center;
+
+          >div:nth-child(1){
+            background-color: #cbd6f2;
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
+          }
+          >div:nth-child(2){
+            background-color: #cbd6f2;
+            width: 16px;
+            height: 8px;
+            border-radius: 8px 8px 0px 0px;
+            margin-top: 2px;
+          }
+        }
+
+        // 상대방 채팅 박스 영역
+        .chatListLayout{
+          display: flex;
+          flex-direction: column;
+          // 채팅 하나하나 박스
+          .chatBox{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            max-width: 60vw;
+            margin: 3px 0px 12px 0px;
+
+            >div:nth-child(1){
+              color:#fff;
+              font-size: 12px;
+              margin-top : 8px;
+            }
+
+            >div:nth-child(2){
+              padding: 7px 10px 7px 10px;
+              background-color: #fff;
+              margin-left:-4px;
+              border-radius: 10px;
+              text-align: left;
+            }
+          }
+
+        }
+      }
+
+      .answerItemLayout{
+        width: 100%;
+        background-color: #fff;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        .aChatBox{
+          display: flex;
+          width:100%;
+          color: #969696;
+          font-size: 22px;
+          border-bottom: 1px solid #eee; // 아래 테두리 속성
+          margin-bottom: 25px;
+          > div:nth-child(1){
+            display: flex;
+            flex: 1;
+            padding:10px;
+            box-sizing: border-box;
+          }
+
+          > div:nth-child(2){
+            padding:10px;
+          }
+
+        }
+
+        .answerBox{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100px;
+          text-align: center;
+          box-shadow: 2px 2px 0px #ededed;
+          border:1px solid #ededed;
+          margin: 0px 20px 15px 20px;
+          border-radius: 20px;
+          cursor: pointer; // 포인터가 손가락 모양으로 보이도록
+        }
+
+      }
+    }
+
+    .questionList::-webkit-scrollbar{
+      display: none; // 스크롤바가 숨겨지지만, 스크롤 기능은 유지한다.
+    }
+    }
+
 }
 
 
