@@ -253,7 +253,7 @@ function App() {
             </div>
           )}
         </div>
-        : // 현재 페이지가 질문 길이보다 크다면,
+        : // 현재 페이지가 질문 길이보다 크다면, (결과페이지)
           <div className='questionLayout'>
             <div className='mbtiTitle'> 
               <div>MBTI 테스트</div>  
@@ -269,6 +269,16 @@ function App() {
                     <div className='chatBox'> 
                       <div>◀</div> <div> 당신의 MBTI는 {mbtiContents.mbti} 입니다.  </div>
                     </div>
+
+                    <div className='chatBox'>
+                      <div>◀</div> <div>{mbtiContents.mbti}는요</div>
+                    </div>
+
+                    {mbtiContents.contents.map((val,idx)=> 
+                      <div  className='chatBox' key={idx}>
+                        <div>◀</div> <div>{val}</div>
+                      </div>
+                    )}
                 </div>
               </div>
             </div>
