@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.scss';
+import mainImage from './images/mainImage.png'
 
 function App() {
   /** 현재 뷰포트 높이의 1%를 계산한다. */
@@ -26,7 +27,7 @@ function App() {
   // 질문 & 답변 리스트 생성
   const questionList = [
     {
-      q: ['입시가 끝나고, 드디어 울산대학교 24학번 새내기가 되었다! 나의 기분은?'],
+      q: ['입시가 끝나고, 드디어 울산대학교 새내기가 되었다! 나의 기분은?'],
       a:[ // 답변
         {type:"I", text:"설레면서도 잘 지낼 수 있을까 걱정된다."},
         {type:"E", text:"새로운 친구들을 만날 생각에 너무 기대된다."}]
@@ -82,9 +83,9 @@ function App() {
     },
 
     {
-      q: ['친구가 몰래 과CC를 한다고 알려준다! 나의 반응은?'],
+      q: ['친구가 과CC를 한다고 알려준다! 나의 반응은?'],
       a:[ // 답변
-        {type:"F", text:"와,, 진짜 낭만있다.. 나도 해보고 싶어!"},
+        {type:"F", text:"진짜?! 축하해!"},
         {type:"T", text:"진짜?! 누구랑?"}]
     },
 
@@ -152,22 +153,22 @@ function App() {
     
     //각 mbti의 특성
     let mc = [
-      {mbti:"ISTP",contents:['백과사전형','','']},
-      {mbti:"ISFP",contents:['성인군자형','','']},
-      {mbti:"ISTJ",contents:['과학자형','','']},
-      {mbti:"ISFJ",contents:['권력형','','']},
-      {mbti:"INFJ",contents:['예언자형','','']},
-      {mbti:"INTJ",contents:['과학자형','','']},
-      {mbti:"INFP",contents:['잔다르크형','','']},
-      {mbti:"INTP",contents:['아이디어형','','']},
-      {mbti:"ESFP",contents:['사교형','','']},
-      {mbti:"ESTP",contents:['활동가형','','']},
-      {mbti:"ESFJ",contents:['친선도모형','','']},
-      {mbti:"ESTJ",contents:['사업가형','','']},
-      {mbti:"ENTP",contents:['발명가형','','']},
-      {mbti:"ENFP",contents:['스파크형','','']},
-      {mbti:"ENFJ",contents:['언변능숙형','','']},
-      {mbti:"ENTJ",contents:['지도자형','','']},
+      {mbti:"ISTP",contents:['백과사전형','',''],   goods:['A','B'], bads:['B']},
+      {mbti:"ISFP",contents:['성인군자형','',''],   goods:['A','B'], bads:['B','B','B','B','B','B','B','B','B','B','B','B','B']}, //default
+      {mbti:"ISTJ",contents:['과학자형','',''],     goods:['A','B'], bads:['B']},
+      {mbti:"ISFJ",contents:['권력형','',''],       goods:['A','B'], bads:['B']},
+      {mbti:"INFJ",contents:['예언자형','',''],     goods:['A','B'], bads:['B']},
+      {mbti:"INTJ",contents:['과학자형','',''],     goods:['A','B'], bads:['B']},
+      {mbti:"INFP",contents:['잔다르크형','',''],   goods:['A','B'], bads:['B']},
+      {mbti:"INTP",contents:['아이디어형','',''],   goods:['A','B'], bads:['B']},
+      {mbti:"ESFP",contents:['사교형','',''],       goods:['A','B'], bads:['B']},
+      {mbti:"ESTP",contents:['활동가형','',''],     goods:['A','B'], bads:['B']},
+      {mbti:"ESFJ",contents:['친선도모형','',''],   goods:['A','B'], bads:['B']},
+      {mbti:"ESTJ",contents:['사업가형','',''],     goods:['A','B'], bads:['B']},
+      {mbti:"ENTP",contents:['발명가형','',''],     goods:['A','B'], bads:['B']},
+      {mbti:"ENFP",contents:['스파크형','',''],     goods:['A','B'], bads:['B']},
+      {mbti:"ENFJ",contents:['언변능숙형','',''],   goods:['A','B'], bads:['B']},
+      {mbti:"ENTJ",contents:['지도자형','',''],     goods:['A','B'], bads:['B']},
     ]
 
     // I와 E를 구분한다.
@@ -202,7 +203,22 @@ function App() {
   }
 
 
+  // 공유 버튼 나타나개 하는 창 띄우기
+  const handleShare  = async () => { // 비동기를 동기처럼 사용하자.
+    // 공유하기에 띄울 데이터 
+    const shareData = {
+      title: "MbtiTest", // 제목
+      text: "울산대학교 새내기 mbti test 결과보기!", // 공유할때 같이 가는 내용
+      url: "https://ji-ny.github.io/mbti_test/", // 사이트
+    };
 
+    try{
+      await navigator.share();
+      console.log("공유하기 성공");
+    } catch{
+      console.log("공유하기 실패");
+    }
+  }
 
   return (
     <div className="mbtiLayout">
@@ -210,16 +226,24 @@ function App() {
       {page===0?
         <div className='startPageLayout'>
           <div className='startLogo'>
-            <div>MBTI</div>
-            <div>▼</div>
+            <div>울산대학교</div>
+            <div>새내기 유형 테스트</div>
+            <img src={mainImage} alt="사진"/>
           </div>
           <div onClick={()=> setPage(1)} className='startButton' >테스트 시작하기</div>
+          <div className='startIntro'> 현재까지 N명의 <br></br>새내기가 참여했어요😊</div>
         </div>
         : page <= questionList.length? // 현재 페이지가 질문 길이보다 작다면,
         <div className='questionLayout'>
           <div className='mbtiTitle'> 
-            <div>MBTI 테스트</div>  
+            <div>새내기 MBTI 테스트</div>  
+            {/* 프로그래스 바 */}
+            <div className='progress_bar'> 
+            {/*  현재 페이지 (1/13%) */}
+              <span style={{width:`${(page / 13) * 100}%`}} className='progress_bar_inner'> </span>
+            </div>
             <div>{`${page} / ${questionList.length}`}</div> 
+            
           </div>
 
           
@@ -227,22 +251,19 @@ function App() {
             <div className='questionList' key={idx} style={{display:page===idx+1? "flex" : "none"}}>
               {console.log(mbtiList)}
               <div className='questionItemLayout'>
-                <div className='profileImg'>
-                  <div/><div/>
-                </div>
+                {/* 내용 */}
                 <div className="chatListLayout">
                   {val.q.map((qval, qidx)=>
                     <div key={qidx} className='chatBox'> 
-                    {/* 채팅 내용 */}
-                      <div>◀</div> <div> {qval} </div>
+                    
+                      <div>Q{page}.</div> {/* 질문 번호 */}
+                      <div> {qval} </div> {/* 질문 내용 */}
                     </div>
                   )}
                 </div>
               </div>
+              {/* 답변 */}
               <div className='answerItemLayout'>
-                <div className="aChatBox">
-                  <div>+</div> <div>#</div>
-                </div>
                 
                 {/* 답변 내용 */}
                 {val.a.map((aval,aidx) => 
@@ -255,35 +276,85 @@ function App() {
           )}
         </div>
         : // 현재 페이지가 질문 길이보다 크다면, (결과페이지)
-          <div className='questionLayout'>
-            <div className='mbtiTitle'> 
-              <div>MBTI 테스트</div>  
-              <div onClick={()=> window.location.reload()}>다시하기</div> 
+          <div className='resultLayout'>
+            <div className='result_title_Layout'>
+              <div>나의 새내기 유형은?</div>
+              <div>{mbtiContents.contents[0]}</div> 
+              <div>{mbtiContents.mbti}</div>
+              <img src={mainImage} alt="사진"/>
             </div>
 
-            <div className='questionList'style={{display:"flex"}}>
-              <div className='questionItemLayout'>
-                <div className='profileImg'>
-                  <div/><div/>
-                </div>
-                <div className="chatListLayout">
-                    <div className='chatBox'> 
-                      <div>◀</div> <div> 당신의 MBTI는 {mbtiContents.mbti} 입니다.  </div>
-                    </div>
-
-                    <div className='chatBox'>
-                      <div>◀</div> <div>{mbtiContents.mbti}는요</div>
-                    </div>
-
-                    {mbtiContents.contents.map((val,idx)=> 
-                      <div  className='chatBox' key={idx}>
-                        <div>◀</div> <div>{val}</div>
+            <div className='result_example'>
+              <div>{mbtiContents.mbti}는요,</div>
+              {mbtiContents.contents.map((val,idx)=> 
+                      <div key={idx}>
+                        <div>{val ? val : "어떤어떤 유형이에요."}</div>  {/* 유형 설명 있다면 띄우기 */}
                       </div>
-                    )}
-                </div>
+              )}
+                
+            </div>
+
+            <hr/>
+            
+            <div className="result_mbtis">
+              <div className="mbti_item">
+                <div>잘 맞아요😊</div>
+                {/* 좋은 mbti 모음 */}
+                {mbtiContents.goods.map((val,idx)=>
+                  <div className="mbtis" key={idx}>
+                      <li>
+                        {val ? val : "CUTE"} {/* MBTI 내용 없다면 띄우기 */}
+                      </li>
+                  </div>
+                )}
+                
+              </div>
+
+              <div className="mbti_item">
+                <div>그저 그래요🤔</div>
+                {/* 별로인 mbti 모음 */}
+                {mbtiContents.bads.map((val,idx)=>
+                  <div className="mbtis" key={idx}>
+                      <li>
+                        {val ? val : "CUTE"} {/* MBTI 내용 없다면 띄우기 */}
+                      </li>
+                  </div>
+                )}
               </div>
             </div>
+            
+            <hr/>
+
+            <div className='result_btn_Layout'>
+              
+              <div onClick={()=> window.location.reload()}>
+                
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_27_4"  maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                  <rect x="0.5" y="0.5" width="24" height="24" fill="#D9D9D9"/>
+                  </mask>
+                  <g mask="url(#mask0_27_4)">
+                  <path d="M12.5 22.5C11.25 22.5 10.0792 22.2625 8.9875 21.7875C7.89583 21.3125 6.94583 20.6708 6.1375 19.8625C5.32917 19.0542 4.6875 18.1042 4.2125 17.0125C3.7375 15.9208 3.5 14.75 3.5 13.5H5.5C5.5 15.45 6.17917 17.1042 7.5375 18.4625C8.89583 19.8208 10.55 20.5 12.5 20.5C14.45 20.5 16.1042 19.8208 17.4625 18.4625C18.8208 17.1042 19.5 15.45 19.5 13.5C19.5 11.55 18.8208 9.89583 17.4625 8.5375C16.1042 7.17917 14.45 6.5 12.5 6.5H12.35L13.9 8.05L12.5 9.5L8.5 5.5L12.5 1.5L13.9 2.95L12.35 4.5H12.5C13.75 4.5 14.9208 4.7375 16.0125 5.2125C17.1042 5.6875 18.0542 6.32917 18.8625 7.1375C19.6708 7.94583 20.3125 8.89583 20.7875 9.9875C21.2625 11.0792 21.5 12.25 21.5 13.5C21.5 14.75 21.2625 15.9208 20.7875 17.0125C20.3125 18.1042 19.6708 19.0542 18.8625 19.8625C18.0542 20.6708 17.1042 21.3125 16.0125 21.7875C14.9208 22.2625 13.75 22.5 12.5 22.5Z" fill="#C0FFF6"/>
+                  </g>
+                </svg>
+
+                다시하기
+              </div> 
+              <div onClick={handleShare}> 
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_27_11" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                  <rect x="0.5" y="0.5" width="24" height="24" fill="#D9D9D9"/>
+                  </mask>
+                  <g mask="url(#mask0_27_11)">
+                  <path d="M6.5 23.5C5.95 23.5 5.47917 23.3042 5.0875 22.9125C4.69583 22.5208 4.5 22.05 4.5 21.5V10.5C4.5 9.95 4.69583 9.47917 5.0875 9.0875C5.47917 8.69583 5.95 8.5 6.5 8.5H9.5V10.5H6.5V21.5H18.5V10.5H15.5V8.5H18.5C19.05 8.5 19.5208 8.69583 19.9125 9.0875C20.3042 9.47917 20.5 9.95 20.5 10.5V21.5C20.5 22.05 20.3042 22.5208 19.9125 22.9125C19.5208 23.3042 19.05 23.5 18.5 23.5H6.5ZM11.5 16.5V5.325L9.9 6.925L8.5 5.5L12.5 1.5L16.5 5.5L15.1 6.925L13.5 5.325V16.5H11.5Z" fill="#C0FFF6"/>
+                  </g>
+                </svg>
+                공유하기 
+              </div>
+            </div>
+
           </div>
+          
       }
     </div>
   );

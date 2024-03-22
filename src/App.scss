@@ -1,3 +1,9 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+/* 스크롤바 스타일 설정 */
+/* 모든 브라우저에서 스크롤바를 배경에 보이지 않게 설정 */
+/* 스크롤바 막대 부분만 아주 작게 모서리 둥글게 설정하여 보이게 함 */
+
+
 .mbtiLayout{
   /*모바일 흐름장에서 볼 때 주소창과 네이게이션과의
     높이는 고려하지 않고 계산이 되어서, 
@@ -8,13 +14,14 @@
   display: flex;
   justify-content: center;
   background-color: #eee;
+  // max-width: 900px;
 
   .startPageLayout{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffea35;
+    background-color: #eee;
     width: 100%;
     max-width: 900px;
     height: 100%;
@@ -27,61 +34,124 @@
       font-size: 25px;
       font-weight: 700;
     
-      //MBTI
+      //울산대학교
       > div:nth-child(1){
-        background-color: #413730;
-        color: #ffea35;
-        width: 100px;
+        // background-color: #413730;
+        color: #00A664;
+        width: 200px;
         height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50px;
+        font-size: 30px;
       }
 
-      //▼
+      //새내기 유형 테스트
       > div:nth-child(2){
-        margin-top:-15px;
+        margin-top:-25px;
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #333333;
       }
+      // 메인 사진 
+      > img:nth-child(3){
+        margin-top:15px;
+        width: 300px;
+        height: 300px;
+        // background-color:#00A664;
+        box-shadow: 0 5px 5px #5c5c5c;
+        
+        border-radius: 10px;
+      }
+
     }
     
+    // 테스트 시작하기
     .startButton{
-      font-size: 17px;
+      
+      background-image: linear-gradient(to right, #00A664, #54d892); /* 그라데이션 */
+      box-shadow: 0 5px 5px #5c5c5c;
+      width: 300px;
+      height: 95px;
+
+      text-align: center;
+      line-height: 95px;
+      // font-size: 17px;
       font-weight: 700;
-      margin-top: 20px;
+      color: #C0FFF6;
+      font-weight: bold;
+      font-size: 30px;
+
+      border-radius: 15px;
+      margin-top: 40px;
       cursor:  pointer; // 마우스를 올렸을 때 커서를 손바닥 모양으로 변경
     }
 
+    // 현재까지 N명의 새내기가 참여했어요.
+    .startIntro{
+      margin-top: 20px;
+      color: #333333;
+
+      font-size: 20px;
+      text-align: center;
+    }
   }
 
+  // 질문 레이아웃
   .questionLayout{
 
     display: flex;
     flex-direction: column;
-    background-color: #bacee0;
+    background-color: #eee;
     width: 100%;
-    max-width: 900%;
+    max-width: 900px;
     height: 100%;
     overflow: hidden; // 스크린 없애기
 
-    // MBTI 제목, 페이지
+    // MBTI 제목
     .mbtiTitle{
       display: flex;
       flex-direction: row;
       width: 100%;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
       padding:15px;
       box-sizing: border-box;
       font-weight: 700;
 
-      >div:nth-child(1){ //"MBTI 테스트"
+      >div:nth-child(1){ //"JINY"
         display: flex;
-        flex:1; // 1을 줘서, 화면 비율에 따라 유연하게 늘어나거나 줄어들 수 있음을 만드는 속성
+        // flex:1; // 1을 줘서, 화면 비율에 따라 유연하게 늘어나거나 줄어들 수 있음을 만드는 속성
       }
+      // 프로그레스 바
+      .progress_bar{
+        // display: flex;
+        box-sizing: border-box;
+        background-color: #F5F5F5;
+
+        // width: 60%;
+        height: 15px;
+        border-radius: 10px;
+
+        flex: 1;
+
+        display: flex;
+        flex-direction: row;
+
+        .progress_bar_inner{
+          // width:10%;
+          background-color: #00A664;
+          border-radius: 10px;
+        }
+      }
+
     }
     // 질문리스트
     .questionList{
       flex-direction: column;
+      
       height: 100%;
       overflow: scroll;
       scrollbar-width: none; // 스크롤바 표시는 없지만, 여전히 스크롤 가능
@@ -91,34 +161,10 @@
       .questionItemLayout{
         display: flex;
         flex:1;
-        margin : 10px 15px 5px 15px;
-
-        .profileImg{
-          display: flex;
-          flex-direction: column;
-          width: 40px;
-          height: 40px;
-          background-color: #a1b6e9;
-          border-radius: 15px;
-          margin-right: 5px;
-          align-items: center;
-          justify-content: center;
-
-          >div:nth-child(1){
-            background-color: #cbd6f2;
-            width: 8px;
-            height: 8px;
-            border-radius: 4px;
-          }
-          >div:nth-child(2){
-            background-color: #cbd6f2;
-            width: 16px;
-            height: 8px;
-            border-radius: 8px 8px 0px 0px;
-            margin-top: 2px;
-          }
-        }
-
+        margin : 30px 15px 5px 15px;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-items: center;
         // 상대방 채팅 박스 영역
         .chatListLayout{
           display: flex;
@@ -126,66 +172,73 @@
           // 채팅 하나하나 박스
           .chatBox{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: flex-start;
-            max-width: 60vw;
+            max-width: 90vw;
             margin: 3px 0px 12px 0px;
-
+            
+            // 질문 번호, Q1 
             >div:nth-child(1){
-              color:#fff;
+              color: #00A664;
               font-size: 12px;
               margin-top : 8px;
+              height: 40px;
+              width: 60px;
+              font-size: 30px;
+              font-weight: bold;
+              margin-left: 20px;
             }
-
+            // 질문 내용, 입시가 끝나고..
             >div:nth-child(2){
               padding: 7px 10px 7px 10px;
-              background-color: #fff;
-              margin-left:-4px;
+              // background-color: #fff;
+              // margin-left:-4px;
               border-radius: 10px;
               text-align: left;
+              // margin-top : 8px;
+              margin-left: 20px;
+
+              
+              color: #333333;
+              font-size: 19px;
+              font-weight: bold;
+              line-height: 24px; // 줄간격 조정
+
             }
           }
 
         }
       }
 
+      // 답변 리스트
       .answerItemLayout{
-        width: 100%;
-        background-color: #fff;
+        flex:2;
+        // width: 100%;
+        // background-color: #fff;
         padding-bottom: 10px;
         display: flex;
         flex-direction: column;
-        .aChatBox{
-          display: flex;
-          width:100%;
-          color: #969696;
-          font-size: 22px;
-          border-bottom: 1px solid #eee; // 아래 테두리 속성
-          margin-bottom: 25px;
-          > div:nth-child(1){
-            display: flex;
-            flex: 1;
-            padding:10px;
-            box-sizing: border-box;
-          }
-
-          > div:nth-child(2){
-            padding:10px;
-          }
-
-        }
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
 
         .answerBox{
+          width: 90%;
           display: flex;
           align-items: center;
           justify-content: center;
           height: 100px;
           text-align: center;
-          box-shadow: 2px 2px 0px #ededed;
+          box-shadow: 0 5px 5px #5c5c5c;
           border:1px solid #ededed;
+          background-color: #F5F5F5;
           margin: 0px 20px 15px 20px;
           border-radius: 20px;
           cursor: pointer; // 포인터가 손가락 모양으로 보이도록
+        
+          &:hover {
+            background-color: #54D892; /* 호버 효과에 따른 배경색 변경 */
+          }
         }
 
       }
@@ -196,8 +249,195 @@
     }
     }
 
+
+
+
+    .resultLayout{
+        // 질문 레이아웃
+        display: flex;
+        flex-direction: column;
+        background-color: #FFFFFF;
+        align-items: center;
+
+
+        width: 100%;
+        max-width: 900%;
+        height: 100%;
+
+        box-sizing: border-box;
+        padding-top: 30px;
+
+      // 타이틀
+      .result_title_Layout{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        // 나의 새내기 유형은?
+        >div:nth-child(1){
+          font-size: 15px;
+          color: #848484;
+        }
+
+        // 0000형?
+        >div:nth-child(2){
+          font-size: 25px;
+          color: #333333;
+          font-weight: bold;
+
+        }
+
+        // 결과 MBTI (ISFP)
+        >div:nth-child(3){
+          font-size: 20px;
+          color: #00A664;
+          font-weight: bold;
+          
+        }
+
+        >img:nth-child(4){
+          margin-top:15px;
+          width: 250px;
+          height: 250px;
+          // background-color:#00A664;
+          box-shadow: 0 5px 5px #5c5c5c;
+          
+          border-radius: 10px;
+
+          margin-bottom: 15px;
+        }
+      }
+
+      // MBTI 내용 설명 (MBTI는요, 어떤어떤 유형이에요.)
+      .result_example{
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        font-weight: bold;
+        width: 280px;
+        
+        // MBTI는요,
+        >div:nth-child(1){
+          color: #00A664;
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+
+    hr{
+      width: 300px;
+      height: 1px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      // border-radius: 1px;
+    }
+
+    .result_mbtis{
+      box-sizing: border-box;
+      width: 300px;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap:30px;
+
+      margin-bottom: 10px;
+
+      .mbti_item{
+        box-sizing: border-box;
+        flex: 1;
+        display: flex;
+        
+        flex-direction: column;
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        box-shadow: 0 3px 4px #5c5c5c;
+        overflow-y: scroll; // 사이즈가 넘어가면, 스크롤 생김
+
+        //------------ 스크롤바 설정 -------------- //
+        &::-webkit-scrollbar{
+          width: 2px; // 스크롤나 너비
+          height : 3px; // 스크롤바 높이 
+        }
+
+        // 스크롤 막대
+        &::-webkit-scrollbar-thumb{
+          background-color:  hsla(138, 49%, 75%, 0.772);
+        
+        } 
+        
+        //------------ 스크롤바 설정 -------------- //
+
+        >div:nth-child(1){
+          min-height: 30px;
+
+          font-size: 15px;
+          background-color: #54D892;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+
+          font-weight: bold;
+          text-align: center;
+          
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+        }
+        
+        .mbtis{
+          box-sizing: border-box;
+          padding-left: 10px;
+        }
+
+        
+      }
+
+
+
+
+    }
+
+    .result_btn_Layout{
+      box-sizing: border-box;
+      width: 300px;
+      height: 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap:15px;
+
+      margin-bottom: 15px;
+
+
+      // 다시하기, 공유하기 버튼 
+      >div{
+        
+        background-image: linear-gradient(to right, #00A664, #54d892); /* 그라데이션 */
+        border-radius: 15px;
+
+        color: #C0FFF6;
+        font-weight: bold;
+        font-size: 22px;
+
+        flex: 1;
+
+        box-sizing: border-box;
+
+        border: 2px solid #333333;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        box-shadow: 0 3px 4px #5c5c5c;
+
+        cursor: pointer;
+
+        
+      }
+    }
+    
+  }
 }
-
-
-
 
