@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/mbti_test/static/css/main.ef0cb9ac.css",
-    "main.js": "/mbti_test/static/js/main.9903d69a.js",
+    "main.css": "/mbti_test/static/css/main.308c4fff.css",
+    "main.js": "/mbti_test/static/js/main.bc0d5a9c.js",
     "static/js/453.9c44b721.chunk.js": "/mbti_test/static/js/453.9c44b721.chunk.js",
+    "static/media/mainImage.png": "/mbti_test/static/media/mainImage.2c65198f18e62a927f93.png",
     "index.html": "/mbti_test/index.html",
-    "main.ef0cb9ac.css.map": "/mbti_test/static/css/main.ef0cb9ac.css.map",
-    "main.9903d69a.js.map": "/mbti_test/static/js/main.9903d69a.js.map",
+    "main.308c4fff.css.map": "/mbti_test/static/css/main.308c4fff.css.map",
+    "main.bc0d5a9c.js.map": "/mbti_test/static/js/main.bc0d5a9c.js.map",
     "453.9c44b721.chunk.js.map": "/mbti_test/static/js/453.9c44b721.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef0cb9ac.css",
-    "static/js/main.9903d69a.js"
+    "static/css/main.308c4fff.css",
+    "static/js/main.bc0d5a9c.js"
   ]
 }
