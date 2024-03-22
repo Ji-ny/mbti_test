@@ -213,7 +213,7 @@ function App() {
     };
 
     try{
-      await navigator.share();
+      await navigator.share(shareData);
       console.log("공유하기 성공");
     } catch{
       console.log("공유하기 실패");
