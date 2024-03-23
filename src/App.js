@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.scss';
 import mainImage from './images/mainImage.png'
 
@@ -212,11 +213,15 @@ function App() {
       url: "https://ji-ny.github.io/mbti_test/", // 사이트
     };
 
+    // 공유기능!
+    const url = window.location.href; // 현재 ㅇurl 정보!
     try{
       await navigator.share(shareData);
       console.log("공유하기 성공");
     } catch{
-      console.log("공유하기 실패");
+      // console.log("공유하기 실패");
+      await navigator.clipboard.writeText(url);
+      alert("클립보드에 링크가 복사되었습니다.");
     }
   }
 
