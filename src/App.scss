@@ -5,6 +5,7 @@
 
 
 .mbtiLayout{
+  position : relative;
   /*모바일 흐름장에서 볼 때 주소창과 네이게이션과의
     높이는 고려하지 않고 계산이 되어서, 
     불필요한 스크롤이 생기기 때문이다.*/
@@ -17,6 +18,13 @@
   // max-width: 900px;
 
   .startPageLayout{
+    position: absolute;
+    animation: start 1s running ease;
+    // animation-name: jaehee;
+    // animation-duration:2s;
+    // animation-play-state : running;
+    // animation-timing-function:ease;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +34,22 @@
     max-width: 900px;
     height: 100%;
     color: #413730;
+
+    /* 키프레임 이름 = 애니메이션 이름 */
+    @keyframes start {
+      0% {
+        opacity : 0; // 에니메이션 투명하게
+        top:-40px;
+        // left: -100px;
+      }
+      
+      100% {
+        top:0px;
+        opacity: 1; // 애니메이션 선명하게
+        // left: 0px;
+        
+      }
+    }
 
     .startLogo{
       display: flex;
@@ -144,6 +168,10 @@
           // width:10%;
           background-color: #00A664;
           border-radius: 10px;
+
+          // 프로그레스바 애니메이션
+          transition: width 0.3s ease; // width가 변경될때마다 애니메이션 발생.
+
         }
       }
 
@@ -159,6 +187,7 @@
       // border: 3px solid red;
 
       .questionItemLayout{
+        
         display: flex;
         flex:1;
         margin : 30px 15px 5px 15px;
@@ -167,6 +196,8 @@
         // justify-items: center;
         // 상대방 채팅 박스 영역
         .chatListLayout{
+          position: relative;
+          animation: question 0.4s running ease; // 애니메이션
           display: flex;
           flex-direction: column;
           // 채팅 하나하나 박스
@@ -179,6 +210,7 @@
             
             // 질문 번호, Q1 
             >div:nth-child(1){
+              
               color: #00A664;
               font-size: 12px;
               margin-top : 8px;
@@ -190,6 +222,7 @@
             }
             // 질문 내용, 입시가 끝나고..
             >div:nth-child(2){
+              
               padding: 7px 10px 7px 10px;
               // background-color: #fff;
               // margin-left:-4px;
@@ -205,10 +238,33 @@
               line-height: 24px; // 줄간격 조정
 
             }
+
+
+
           }
+
+          // 질문 애니메이션
+          @keyframes question {
+            0% {
+              opacity : 0; // 에니메이션 투명하게
+              left:100%;
+              // left: -100px;
+            }
+            
+            100% {
+              left:0px;
+              opacity: 1; // 애니메이션 선명하게
+              // left: 0px;
+              
+            }
+          }
+          /* 키프레임 이름 = 애니메이션 이름 */
+
 
         }
       }
+
+
 
       // 답변 리스트
       .answerItemLayout{
@@ -223,6 +279,8 @@
         font-weight: bold;
 
         .answerBox{
+          animation: answer 1.3s running ease; // 애니메이션
+
           width: 90%;
           display: flex;
           align-items: center;
@@ -240,6 +298,18 @@
             background-color: #54D892; /* 호버 효과에 따른 배경색 변경 */
           }
         }
+        
+        // 답변 애니메이션
+        @keyframes answer {
+          0% {
+            opacity : 0; // 에니메이션 투명하게
+
+          }
+          
+          100% {
+            opacity: 1; // 애니메이션 선명하게
+          }
+        }
 
       }
     }
@@ -247,12 +317,16 @@
     .questionList::-webkit-scrollbar{
       display: none; // 스크롤바가 숨겨지지만, 스크롤 기능은 유지한다.
     }
+
+
     }
 
 
 
 
     .resultLayout{
+        position: relative;
+        animation: end 1s running ease;
         // 질문 레이아웃
         display: flex;
         flex-direction: column;
@@ -437,7 +511,21 @@
         
       }
     }
-    
+        /* 키프레임 이름 = 애니메이션 이름 */
+    @keyframes end {
+      0% {
+        opacity : 0; // 에니메이션 투명하게
+        top:-40px;
+        // left: -100px;
+      }
+      
+      100% {
+        top:0px;
+        opacity: 1; // 애니메이션 선명하게
+        // left: 0px;
+        
+      }
+    }
   }
 }
 
