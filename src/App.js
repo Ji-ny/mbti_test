@@ -1,9 +1,27 @@
 
 import { useEffect, useState } from 'react';
 import './App.scss';
-import mainImage from './images/mainImage.png'
+import mainImage from './images/main.png';
+import istpImage from "./images/istp.jpg";
+import isfpImage from "./images/isfp.jpg";
+import istjImage from "./images/istj.jpg";
+import isfjImage from "./images/isfj.jpg";
+import infjImage from "./images/infj.jpg";
+import intjImage from "./images/intj.jpg";
+import infpImage from "./images/infp.jpg";
+import intpImage from "./images/intp.jpg";
+import esfpImage from "./images/esfp.jpg";
+import estpImage from "./images/estp.jpg";
+import esfjImage from "./images/esfj.jpg";
+import estjImage from "./images/estj.jpg";
+import entpImage from "./images/entp.jpg";
+import enfpImage from "./images/enfp.jpg";
+import enfjImage from "./images/enfj.jpg";
+import entjImage from "./images/entj.jpg";
+
 
 function App() {
+
 
   // ---------- 참여한 사람 수 증가 --------------------------------------//
   const [number, setNumber] = useState(0); // 초기 값은 0으로 설정
@@ -184,99 +202,133 @@ function App() {
         name: ['자유로운 영혼의 새내기'], 
         contents:['벼락치기 진짜 잘해요.','논리적이고 뛰어난 적응력을 가지고 있어요.','처음엔 낯을 가리지만 친해지면 장난도 잘 쳐요.'],   
         goods:['ESFJ', 'ENTJ'], //ENFP, ENTJ
-        bads:['INFP, ENFP, INFJ, ENFJ']},    // 백과사전형
+        bads:['INFP, ENFP, INFJ, ENFJ'],
+        image:istpImage,
+      },    // 백과사전형
+        
+        
 
     {   mbti:"ISFP", 
         name: ['감성적인 새내기'], 
         contents:['타인 배려를 잘하지만 눈치를 많이 봐요.','순하고 정이 많아요.','상대방의 이야기를 잘 들어줘요.'],   
         goods:['ENFJ','ESFJ','ESTJ'], //INFJ, INTJ
-        bads:['INFP', 'ENFP', 'INFJ']}, //default    // 성인군자형
+        bads:['INFP', 'ENFP', 'INFJ'],
+        image:isfpImage,
+      }, //default    // 성인군자형
 
     {   mbti:"ISTJ", 
         name: ['목표를 향해 노력하는 새내기'], 
         contents:['책임감이 높고, 신중해요.','한번 시작한 일을 끝까지 해내요.','약속 어기는건 싫어요.'],     
         goods:['ESFP', 'ESTP'], 
-        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 과학자형
+        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+        image:istjImage,
+      },    // 과학자형
 
     {   mbti:"ISFJ", 
         name: ['친절하고 섬세한 새내기'], 
         contents:['나서는건 싫어하지만 관심받는건 좋아요.','성실하고 온화해요.','눈치가 빠르고 센스있어요.'],       
         goods:['ESFP','ESTP'], 
-        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 권력형
+        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+        image:isfjImage,
+      },    // 권력형
 
     {   mbti:"INFJ", 
         name: ['따뜻하고 통찰력있는 새내기'], 
         contents:['혼자 쉬는 시간이 필요해요.','인간관계에 통찰력이 뛰어나서, 눈치가 빨라요.','계획적인걸 좋아해요.'],     
         goods:['ENFP','ENTP'], 
-        bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ']},    // 예언자형
+        bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ'],
+        image:infjImage,
+      },    // 예언자형
 
     {   mbti:"INTJ", 
         name: ['미래를 준비하는 새내기'], 
         contents:['자립심이 강해요.','효율적이에요.','도움이 필요한 사람에게는 차별없이 잘 도와줘요.'],     
         goods:['ENFP','ENTP'], 
-        bads:['INFP', 'INFJ', 'ENFJ', 'INTJ', 'ENTJ', 'INTP']},    // 과학자형
+        bads:['INFP', 'INFJ', 'ENFJ', 'INTJ', 'ENTJ', 'INTP'],
+        image:intjImage,
+      },    // 과학자형
 
     {   mbti:"INFP", 
         name: ['창의적인 새내기'],
         contents:['공감을 잘해줘요','자주 우울하지만, 티를 안내요.','따뜻한 마음씨를 가져, 사람들과 잘 어울려요.'],   
         goods:['ENFJ','ENTJ'],  // * ENFJ, ENTJ
-        bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ']}, // * ISFP, ESFP, ISTP, ESTP, ISFJ, ESFJ, ISTJ, ESTJ
+        bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ'],
+        image:infpImage,
+      }, // * ISFP, ESFP, ISTP, ESTP, ISFJ, ESFJ, ISTJ, ESTJ
         // 잔다르크형
 
     {   mbti:"INTP", 
         name: ['지적인 호기심을 가진 새내기'], 
         contents:['신중하고, 논리적이에요.','감정기복이 적어요.','친해진 사람에게는 정말 잘해줘요.'],   
         goods:['ENTJ','ESTJ'], 
-        bads:['']},    // 아이디어형
+        bads:[''],
+        image:intpImage,
+      },    // 아이디어형
 
     {   mbti:"ESFP", 
         name: ['즐거움을 전하는 새내기'], 
         contents:['자존감이 높아요.','정이 많아서 거절을 잘 못해요.','평화로운게 좋아요.'],       
         goods:['ISFJ','ISTJ'], 
-        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 사교형
+        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+        image:esfpImage,
+      },    // 사교형
 
     {   mbti:"ESTP", 
         name: ['모험을 즐기는 새내기'], 
         contents:['친화력 최강!','직설적인 말투로 오해받을때가 있지만, 절대 나쁜 의도가 아니에요.','재미있는 이야기로 모임을 주도해요.'],    
         goods:['ISFJ','ISTJ'], 
-        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 활동가형
+        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+        image:estpImage,
+      },    // 활동가형
 
     {   mbti:"ESFJ", 
         name: ['쾌활한 인간 관계를 갖춘 새내기'], 
         contents:['약속은 무조건 지켜요.','주변 사람을 잘 챙겨줘요.','분위기 파악을 잘 해요.'],   
         goods:['ISFP','ISTP'], 
-        bads:['INFP','ENFP','INFJ','ENFJ']},    // 친선도모형
+        bads:['INFP','ENFP','INFJ','ENFJ'],
+        image:esfjImage,
+      },    // 친선도모형
 
     {   mbti:"ESTJ", 
         name: ['리더십 갖춘 새내기'], 
         contents:['리더십이 있고 체계적이에요.','호불호가 확실해요.','공정하고 논리적이에요.'],     
         goods:['ISFP','ISTP'], 
-        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 사업가형
+        bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+        image:estjImage,
+      },    // 사업가형
 
     {   mbti:"ENTP", 
         name: ['아이디어 넘치는 새내기'], 
         contents:['토론이나 논쟁은 이겨야해요.','아이디어가 많아요.','자기주장이 강해요.'],     
         goods:['INFJ','INTJ'], 
-        bads:['']},    // 발명가형
+        bads:[''],
+        image:entpImage,
+      },    // 발명가형
 
     {   mbti:"ENFP", 
         name: ['열정최고 새내기'], 
         contents:['사교적이고 에너지가 넘쳐요.','쉽게 질려해요.','호기심이 많아요.'],     
         goods:['INFJ','INTJ'],
-        bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ']}, //['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ']  
+        bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ'],
+        image:enfpImage,
+      }, //['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ']  
           // 스파크형
 
     {   mbti:"ENFJ", 
         name: ['사람을 이끄는 새내기'], 
         contents:['타인을 사로잡는 카리스마와 매력이 있어요.','사람들과 커뮤니케이션을 잘해요.','공과 사를 확실히 구분해요.'],  
         goods:['INFP','ISFP'], 
-        bads:['ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ']},    // 언변능숙형
+        bads:['ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ'],
+        image:enfjImage,
+      },    // 언변능숙형
 
     {   mbti:"ENTJ", 
         name: ['목표를 향해 달려가는 새내기'], 
         contents:['리더 역할을 잘해요.','어딜 가든 누구와 친해질 수 있지만, 굳이 친해지진 않아요.','솔직하면서 단호해요.'],    
         goods:['INFP','INTP'], 
-        bads:['']},    // 지도자형
+        bads:[''],
+        image:entjImage,
+      },    // 지도자형
 
   ];
 
@@ -286,104 +338,137 @@ function App() {
   function setMbti(){
     
     //각 mbti의 특성
+    // 여기 image로 결과가 나타난다.
     let mc = [
       {   mbti:"ISTP", 
           name: ['자유로운 영혼의 새내기'], 
           contents:['벼락치기 진짜 잘해요.','논리적이고 뛰어난 적응력을 가지고 있어요.','처음엔 낯을 가리지만 친해지면 장난도 잘 쳐요.'],   
           goods:['ESFJ', 'ENTJ'], //ENFP, ENTJ
-          bads:['INFP, ENFP, INFJ, ENFJ']},    // 백과사전형
+          bads:['INFP, ENFP, INFJ, ENFJ'],
+          image:istpImage,
+        },    // 백과사전형
 
       {   mbti:"ISFP", 
           name: ['감성적인 새내기'], 
           contents:['타인 배려를 잘하지만 눈치를 많이 봐요.','순하고 정이 많아요.','상대방의 이야기를 잘 들어줘요.'],   
           goods:['ENFJ','ESFJ','ESTJ'], //INFJ, INTJ
-          bads:['INFP', 'ENFP', 'INFJ']}, //default    // 성인군자형
+          bads:['INFP', 'ENFP', 'INFJ'],
+          image:isfpImage,
+        }, //default    // 성인군자형
 
       {   mbti:"ISTJ", 
           name: ['목표를 향해 노력하는 새내기'], 
           contents:['책임감이 높고, 신중해요.','한번 시작한 일을 끝까지 해내요.','약속 어기는건 싫어요.'],     
           goods:['ESFP', 'ESTP'], 
-          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 과학자형
+          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+          image:istjImage,
+        },    // 과학자형
 
       {   mbti:"ISFJ", 
           name: ['친절하고 섬세한 새내기'], 
           contents:['나서는건 싫어하지만 관심받는건 좋아요.','성실하고 온화해요.','눈치가 빠르고 센스있어요.'],       
           goods:['ESFP','ESTP'], 
-          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 권력형
+          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+          image:isfjImage,
+        },    // 권력형
 
       {   mbti:"INFJ", 
           name: ['따뜻하고 통찰력있는 새내기'], 
           contents:['혼자 쉬는 시간이 필요해요.','인간관계에 통찰력이 뛰어나서, 눈치가 빨라요.','계획적인걸 좋아해요.'],     
           goods:['ENFP','ENTP'], 
-          bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ']},    // 예언자형
+          bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ'],
+          image:infjImage,
+        },    // 예언자형
 
       {   mbti:"INTJ", 
           name: ['미래를 준비하는 새내기'], 
           contents:['자립심이 강해요.','효율적이에요.','도움이 필요한 사람에게는 차별없이 잘 도와줘요.'],     
           goods:['ENFP','ENTP'], 
-          bads:['INFP', 'INFJ', 'ENFJ', 'INTJ', 'ENTJ', 'INTP']},    // 과학자형
+          bads:['INFP', 'INFJ', 'ENFJ', 'INTJ', 'ENTJ', 'INTP'],
+          image:intjImage,
+        },    // 과학자형
 
       {   mbti:"INFP", 
           name: ['창의적인 새내기'],
           contents:['공감을 잘해줘요','자주 우울하지만, 티를 안내요.','따뜻한 마음씨를 가져, 사람들과 잘 어울려요.'],   
           goods:['ENFJ','ENTJ'],  // * ENFJ, ENTJ
-          bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ']}, // * ISFP, ESFP, ISTP, ESTP, ISFJ, ESFJ, ISTJ, ESTJ
+          bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ'],
+          image:infpImage,
+        }, // * ISFP, ESFP, ISTP, ESTP, ISFJ, ESFJ, ISTJ, ESTJ
           // 잔다르크형
 
       {   mbti:"INTP", 
           name: ['지적인 호기심을 가진 새내기'], 
           contents:['신중하고, 논리적이에요.','감정기복이 적어요.','친해진 사람에게는 정말 잘해줘요.'],   
           goods:['ENTJ','ESTJ'], 
-          bads:['']},    // 아이디어형
+          bads:[''],
+          image:intpImage,
+        },    // 아이디어형
 
       {   mbti:"ESFP", 
           name: ['즐거움을 전하는 새내기'], 
           contents:['자존감이 높아요.','정이 많아서 거절을 잘 못해요.','평화로운게 좋아요.'],       
           goods:['ISFJ','ISTJ'], 
-          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 사교형
+          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+          image:esfpImage,
+        },    // 사교형
 
       {   mbti:"ESTP", 
           name: ['모험을 즐기는 새내기'], 
           contents:['친화력 최강!','직설적인 말투로 오해받을때가 있지만, 절대 나쁜 의도가 아니에요.','재미있는 이야기로 모임을 주도해요.'],    
           goods:['ISFJ','ISTJ'], 
-          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 활동가형
+          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+          image:estpImage,
+        },    // 활동가형
 
       {   mbti:"ESFJ", 
-          name: ['쾌활한 인간 관계를 갖춘 새내기'], 
+          name: ['쾌활한 인간 관계 새내기'], 
           contents:['약속은 무조건 지켜요.','주변 사람을 잘 챙겨줘요.','분위기 파악을 잘 해요.'],   
           goods:['ISFP','ISTP'], 
-          bads:['INFP','ENFP','INFJ','ENFJ']},    // 친선도모형
+          bads:['INFP','ENFP','INFJ','ENFJ'],
+          image:esfjImage,
+        },    // 친선도모형
 
       {   mbti:"ESTJ", 
           name: ['리더십 갖춘 새내기'], 
           contents:['리더십이 있고 체계적이에요.','호불호가 확실해요.','공정하고 논리적이에요.'],     
           goods:['ISFP','ISTP'], 
-          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ']},    // 사업가형
+          bads:['INFP', 'ENFP', 'INFJ', 'ENFJ'],
+          image:estjImage,
+        },    // 사업가형
 
       {   mbti:"ENTP", 
           name: ['아이디어 넘치는 새내기'], 
           contents:['토론이나 논쟁은 이겨야해요.','아이디어가 많아요.','자기주장이 강해요.'],     
           goods:['INFJ','INTJ'], 
-          bads:['']},    // 발명가형
+          bads:[''],
+          image:entpImage,
+        },    // 발명가형
 
       {   mbti:"ENFP", 
           name: ['열정최고 새내기'], 
           contents:['사교적이고 에너지가 넘쳐요.','쉽게 질려해요.','호기심이 많아요.'],     
           goods:['INFJ','INTJ'],
-          bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ']}, //['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ']  
+          bads:['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ'],
+          image:enfpImage,
+        }, //['ISFP', 'ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ','ISTJ', 'ESTJ']  
             // 스파크형
 
       {   mbti:"ENFJ", 
           name: ['사람을 이끄는 새내기'], 
           contents:['타인을 사로잡는 카리스마와 매력이 있어요.','사람들과 커뮤니케이션을 잘해요.','공과 사를 확실히 구분해요.'],  
           goods:['INFP','ISFP'], 
-          bads:['ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ']},    // 언변능숙형
+          bads:['ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ'],
+          image:enfjImage,
+        },    // 언변능숙형
 
       {   mbti:"ENTJ", 
           name: ['목표를 향해 달려가는 새내기'], 
           contents:['리더 역할을 잘해요.','어딜 가든 누구와 친해질 수 있지만, 굳이 친해지진 않아요.','솔직하면서 단호해요.'],    
           goods:['INFP','INTP'], 
-          bads:['']},    // 지도자형
+          bads:[''],
+          image:entjImage,
+        },    // 지도자형
 
     ]
 
@@ -500,7 +585,7 @@ function App() {
               <div>나의 새내기 유형은?</div>
               <div>{mbtiContents.name}</div> 
               <div>{mbtiContents.mbti}</div>
-              <img src={mainImage} alt="사진"/>
+              <img src={mbtiContents.image} alt="사진"/>
             </div>
 
             <div className='result_example'>
@@ -521,7 +606,7 @@ function App() {
                 {/* 좋은 mbti 모음  // ! find 수정하기 */}
                 {mbtiContents.goods.map((val,idx)=> // ISTP,, 등 차례대로 꺼내진다.
                   <div className="mbtis" key={idx}>  
-                      <li>
+                      <li className='mbtis-li'>
                       {mbtis.find(item => item.mbti === val)?.name || "CUTE"}
                       </li>
                   </div>
@@ -534,7 +619,7 @@ function App() {
                 {/* 별로인 mbti 모음 */}
                 {mbtiContents.bads.map((val,idx)=>
                   <div className="mbtis" key={idx}>
-                      <li>
+                      <li className='mbtis-li'>
                       {mbtis.find(item => item.mbti === val)?.name || "CUTE"}{/* MBTI 내용 없다면 띄우기 */}
                       </li>
                   </div>
