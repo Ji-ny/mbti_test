@@ -615,7 +615,7 @@ function App() {
               </div>
 
               <div className="mbti_item">
-                <div>힝구리에요🤔</div>
+                <div>함께 맞춰가요🥹</div>
                 {/* 별로인 mbti 모음 */}
                 {mbtiContents.bads.map((val,idx)=>
                   <div className="mbtis" key={idx}>
