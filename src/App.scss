@@ -1,4 +1,6 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Poor+Story&display=swap');
+
 /* 스크롤바 스타일 설정 */
 /* 모든 브라우저에서 스크롤바를 배경에 보이지 않게 설정 */
 /* 스크롤바 막대 부분만 아주 작게 모서리 둥글게 설정하여 보이게 함 */
@@ -15,6 +17,9 @@
   display: flex;
   justify-content: center;
   background-color: #eee;
+  font-family: "Poor Story", system-ui;
+  font-weight: 400;
+  font-style: normal;
   // max-width: 900px;
 
   .startPageLayout{
@@ -84,7 +89,7 @@
         width: 300px;
         height: 300px;
         // background-color:#00A664;
-        box-shadow: 0 5px 5px #5c5c5c;
+        box-shadow: 0 5px 5px #8f8f8f;
         
         border-radius: 10px;
       }
@@ -374,7 +379,7 @@
           width: 250px;
           height: 250px;
           // background-color:#00A664;
-          box-shadow: 0 5px 5px #5c5c5c;
+          box-shadow: 0 5px 5px #8f8f8f;
           
           border-radius: 10px;
 
@@ -462,6 +467,15 @@
         .mbtis{
           box-sizing: border-box;
           padding-left: 10px;
+          list-style: none; // 스타일을 없애준다. (점을 없앰)
+          margin-top: 2px;
+          margin-bottom: 2px;
+          font-weight: 545;
+          font-size: 13px;
+          
+          .mbtis-li::before { // li 전에, 별을 넣어주자.
+            content: "⭐ ";
+          }
         }
 
         
